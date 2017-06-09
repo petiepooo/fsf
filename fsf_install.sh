@@ -64,9 +64,3 @@ chmod +x /etc/cron.d/fsf
 chmod +x /opt/fsf/extracted/process.sh
 
 cd /opt/fsf/
-
-docker build -t wlambert/fsf .
-
-docker stop fsf
-
-/usr/sbin/fsf-start
