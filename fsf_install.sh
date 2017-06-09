@@ -13,6 +13,7 @@ if [ "$(id -u)" -ne 0 ]; then
         echo "This script must be run using sudo!"
         exit 1
 fi
+DOCKERHUB="wlambert"
 REPO="fsf"
 URL="https://github.com/weslambert/$REPO.git"
 
@@ -35,7 +36,8 @@ apt-get update > /dev/null
 apt-get -y install docker-ce > /dev/null
 echo "Done!"
 
-#header "Downloading Docker container"
+header "Downloading Docker container"
+docker pull $DOCKERHUB/fsf
 #echo "export DOCKER_CONTENT_TRUST=1" >> /etc/profile.d/securityonion-docker.sh
 #export DOCKER_CONTENT_TRUST=1
 
