@@ -1,0 +1,7 @@
+#/etc/cron.d/fsf
+#
+#crontab entry for fsf
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/localbin:/sbin:/bin?usr/sbin:/usr/bin
+* * * * * root docker exec fsf /home/nonroot/workdir/extracted/process.sh >> /var/log/fsf/fsf.log
