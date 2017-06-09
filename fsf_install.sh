@@ -4,14 +4,14 @@
 # Define a banner to separate sections
 banner="========================================================================="
 header() {
-	echo
-	printf '%s\n' "$banner" "$*" "$banner"
+        echo
+        printf '%s\n' "$banner" "$*" "$banner"
 }
 
 # Check for prerequisites
 if [ "$(id -u)" -ne 0 ]; then
-	echo "This script must be run using sudo!"
-	exit 1
+        echo "This script must be run using sudo!"
+        exit 1
 fi
 REPO="fsf"
 URL="https://github.com/weslambert/$REPO.git"
@@ -19,6 +19,7 @@ URL="https://github.com/weslambert/$REPO.git"
 header "Performing apt-get update"
 apt-get update > /dev/null
 echo "Done!"
+
 
 header "Installing git"
 apt-get install -y git > /dev/null
@@ -52,15 +53,19 @@ chown -R 1000:1000 /opt/fsf/pending/
 chown -R 1000:1000 /opt/fsf/processed/
 chown -R 1000:1000 /var/log/fsf/
 
+
 git clone $URL
 
-cp $REPO/Docker/Dockerfile /opt/fsf/
-cp -av $REPO/etc/cron.d/fsf /etc/cron.d/fsf/
+cp $REPO/Docker/Dockerfile /opt/fsf/Dockerfile
+cp -av $REPO/etc/cron.d/fsf /etc/cron.d/fsf
 cp -av $REPO/usr/sbin/fsf-start /usr/sbin/fsf-start
-cp -av $REPO/process.sh /opt/fsf/extracted/
-chmod +x /opt/fsf/extracted/process.sh/
+cp -av $REPO/process.sh /opt/fsf/extracted/process.sh
+chmod +x /etc/cron.d/fsf
+chmod +x /opt/fsf/extracted/process.sh
 
-docker build -f /opt/fsf/Dockerfile -t wlambert/fsf .
+cd /opt/fsf/
+
+docker build fsf .
 
 docker stop fsf
 
