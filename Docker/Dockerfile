@@ -157,4 +157,4 @@ ENV HOME /home/nonroot
 ENV USER nonroot
 WORKDIR /home/nonroot/workdir
 
-ENTRYPOINT sed -i "/^SERVER_CONFIG/ s/127\.0\.0\.1/$(hostname -i)/" /home/nonroot/fsf/fsf-client/conf/config.py && main.py start && /usr/sbin/cron -f
+ENTRYPOINT sed -i "/^SERVER_CONFIG/ s/127\.0\.0\.1/$(hostname -i)/" /home/nonroot/fsf/fsf-client/conf/config.py && main.py start
