@@ -1,6 +1,13 @@
 #!/bin/bash
 # Install FSF on Docker
 
+# Define a banner to separate sections
+banner="========================================================================="
+header() {
+	echo
+	printf '%s\n' "$banner" "$*" "$banner"
+}
+
 # Check for prerequisites
 if [ "$(id -u)" -ne 0 ]; then
 	echo "This script must be run using sudo!"
