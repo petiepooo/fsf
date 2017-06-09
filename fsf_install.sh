@@ -65,7 +65,7 @@ chmod +x /opt/fsf/extracted/process.sh
 
 cd /opt/fsf/
 
-docker build fsf .
+docker build -t wlambert/fsf .
 
 docker stop fsf
 
