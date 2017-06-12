@@ -43,16 +43,12 @@ docker pull $DOCKERHUB/fsf
 
 # Create directories and assign perms
 mkdir -p /opt/fsf/extracted/
-mkdir -p /opt/fsf/error/
-mkdir -p /opt/fsf/output/
-mkdir -p /opt/fsf/pending/
-mkdir -p /opt/fsf/processed/
+mkdir -p /opt/fsf/extracted/error/
+mkdir -p /opt/fsf/extracted/output/
+mkdir -p /opt/fsf/extracted/pending/
+mkdir -p /opt/fsf/extracted/processed/
 mkdir -p /var/log/fsf
-chown -R 1000:1000 /opt/fsf/extracted/
-chown -R 1000:1000 /opt/fsf/error/
-chown -R 1000:1000 /opt/fsf/output/
-chown -R 1000:1000 /opt/fsf/pending/
-chown -R 1000:1000 /opt/fsf/processed/
+chown -R 1000:1000 /opt/fsf/
 chown -R 1000:1000 /var/log/fsf/
 
 
@@ -63,6 +59,8 @@ cp -av $REPO/etc/cron.d/fsf /etc/cron.d/fsf
 cp -av $REPO/usr/sbin/fsf-start /usr/sbin/fsf-start
 cp -av $REPO/process.sh /opt/fsf/extracted/process.sh
 chmod +x /etc/cron.d/fsf
+chmod +x /usr/sbin/fsf-start
 chmod +x /opt/fsf/extracted/process.sh
 
 cd /opt/fsf/
+/usr/sbin/fsf-start
