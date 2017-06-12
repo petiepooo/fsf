@@ -64,4 +64,5 @@ chmod +x /opt/fsf/extracted/process.sh
 
 cd /opt/fsf/
 /usr/sbin/fsf-start
+cp /tmp/Test.zip /opt/fsf/extracted/pending/Test.zip
 
