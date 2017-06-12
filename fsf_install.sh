@@ -37,7 +37,7 @@ apt-get -y install docker-ce > /dev/null
 echo "Done!"
 
 header "Downloading Docker container"
-docker pull $DOCKERHUB/fsf
+#docker pull $DOCKERHUB/fsf
 #echo "export DOCKER_CONTENT_TRUST=1" >> /etc/profile.d/securityonion-docker.sh
 #export DOCKER_CONTENT_TRUST=1
 
@@ -64,3 +64,4 @@ chmod +x /opt/fsf/extracted/process.sh
 
 cd /opt/fsf/
 /usr/sbin/fsf-start
+
