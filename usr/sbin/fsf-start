@@ -4,4 +4,4 @@ if [ "$(id -u)" -ne 0 ]; then
         echo "This script must be run using sudo!"
         exit 1
 fi
-docker run -it --name=fsf -d -v /opt/fsf:/home/nonroot/workdir -v /etc/cron.d/fsf:/etc/cron.d/fsf:ro -v /var/log/fsf:/var/log/fsf -p 5800:5800 wzod/fsf
+docker run -it --name=fsf -d -v /opt/fsf/extracted:/home/nonroot/workdir/extracted:Z -v /etc/cron.d/fsf:/etc/cron.d/fsf:ro -v /var/log/fsf:/var/log/fsf:Z -p 5800:5800 wzod/fsf
