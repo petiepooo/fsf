@@ -48,19 +48,17 @@ mkdir -p /opt/fsf/extracted/output/
 mkdir -p /opt/fsf/extracted/pending/
 mkdir -p /opt/fsf/extracted/processed/
 mkdir -p /var/log/fsf
-chown -R 1000:1000 /opt/fsf/
-chown -R 1000:1000 /var/log/fsf/
-
+#chown -R 1000:1000 /opt/fsf/
+#chown -R 1000:1000 /var/log/fsf/
 
 git clone $URL
 
 cp $REPO/Docker/Dockerfile /opt/fsf/Dockerfile
 cp -av $REPO/etc/cron.d/fsf /etc/cron.d/fsf
-cp -av $REPO/usr/sbin/fsf-start /usr/sbin/fsf-start
+cp -av $REPO/usr/sbin/* /usr/sbin/
 cp -av $REPO/process.sh /opt/fsf/extracted/process.sh
 chmod +x /etc/cron.d/fsf
-chmod +x /usr/sbin/fsf-start
+chmod +x /usr/sbin/fsf-*
 chmod +x /opt/fsf/extracted/process.sh
 
-cd /opt/fsf/
 /usr/sbin/fsf-start
